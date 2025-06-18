@@ -1,0 +1,215 @@
+/* CSS Custom Properties for Film Themes */
+:root {
+	/* Botan Theme */
+	--botan-bg-start: #87CEEB;
+	--botan-bg-end: #F0E68C;
+	--botan-card-start: #E6A8D8;
+	--botan-card-mid: #D8A8E6;
+	--botan-card-end: #B8A8E8;
+	--botan-button-start: #4ECDC4;
+	--botan-button-end: #44A08D;
+	--botan-button-shadow: rgba(78, 205, 196, 0.3);
+	--botan-button-shadow-hover: rgba(78, 205, 196, 0.4);
+
+	/* Chi Theme */
+	--chi-bg-start: #3A8FB7;
+	--chi-bg-end: #5BA8C7;
+	--chi-card-start: #3A8FB7;
+	--chi-card-mid: #4A9FC7;
+	--chi-card-end: #5AAFD7;
+	--chi-button-start: #3A8FB7;
+	--chi-button-end: #2A7FA7;
+	--chi-button-shadow: rgba(58, 143, 183, 0.3);
+	--chi-button-shadow-hover: rgba(58, 143, 183, 0.4);
+}
+
+/* Base Styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+
+/* Botan Theme Body */
+body.botan {
+	background: linear-gradient(135deg, var(--botan-bg-start) 0%, var(--botan-bg-end) 100%);
+}
+
+/* Chi Theme Body */
+body.chi {
+	background: linear-gradient(135deg, var(--chi-bg-start) 0%, var(--chi-bg-end) 100%);
+}
+
+.card-container {
+	max-width: 400px;
+	width: 100%;
+	background: white;
+	border-radius: 20px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	cursor: pointer;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-container:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card {
+	padding: 60px 40px;
+	text-align: center;
+	position: relative;
+	border-radius: 20px;
+	margin: 20px;
+}
+
+/* Botan Theme Card */
+.botan .card {
+	background: linear-gradient(135deg, var(--botan-card-start), var(--botan-card-mid), var(--botan-card-end));
+}
+
+/* Chi Theme Card */
+.chi .card {
+	background: linear-gradient(135deg, var(--chi-card-start), var(--chi-card-mid), var(--chi-card-end));
+}
+
+.horika-title {
+	font-size: 32px;
+	font-weight: 900;
+	color: #2D2D2D;
+	margin-bottom: 30px;
+	letter-spacing: 2px;
+}
+
+.film-cylinder {
+	position: relative;
+	width: 120px;
+	height: 180px;
+	margin: 0 auto 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.roll-svg {
+	width: 100%;
+	height: 100%;
+	filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.film-text {
+	position: absolute;
+	color: #2D2D2D;
+	font-size: 18px;
+	font-weight: 900;
+	letter-spacing: 4px;
+	transform: rotate(90deg);
+	text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+	z-index: 10;
+}
+
+.subtitle {
+	font-size: 24px;
+	color: #666;
+	font-weight: 500;
+	margin-top: 10px;
+}
+
+.action-button {
+	color: white;
+	border: none;
+	padding: 16px 32px;
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 25px;
+	margin: 30px 20px 20px;
+	cursor: pointer;
+	width: calc(100% - 40px);
+	transition: all 0.3s ease;
+}
+
+/* Botan Theme Button */
+.botan .action-button {
+	background: linear-gradient(135deg, var(--botan-button-start), var(--botan-button-end));
+	box-shadow: 0 4px 15px var(--botan-button-shadow);
+}
+
+.botan .action-button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px var(--botan-button-shadow-hover);
+}
+
+/* Chi Theme Button */
+.chi .action-button {
+	background: linear-gradient(135deg, var(--chi-button-start), var(--chi-button-end));
+	box-shadow: 0 4px 15px var(--chi-button-shadow);
+}
+
+.chi .action-button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px var(--chi-button-shadow-hover);
+}
+
+.cta {
+	text-align: center;
+	margin: 20px;
+}
+
+.app-store-button {
+	display: inline-block;
+	transition: transform 0.3s ease;
+}
+
+.app-store-button:hover {
+	transform: translateY(-2px);
+}
+
+.app-info {
+	margin-top: 10px;
+	font-size: 14px;
+	color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+	.card {
+		padding: 40px 20px;
+	}
+
+	.horika-title {
+		font-size: 28px;
+	}
+
+	.film-cylinder {
+		width: 100px;
+		height: 150px;
+	}
+
+	.film-text {
+		font-size: 16px;
+		letter-spacing: 3px;
+	}
+}
+
+/* Shared JavaScript Animation Styles */
+.card-container.pressed {
+	transform: translateY(-3px) scale(0.98);
+}
+
+.card-container.hover {
+	transform: translateY(-5px) scale(1);
+}
+
+.card-container.normal {
+	transform: translateY(0) scale(1);
+}
