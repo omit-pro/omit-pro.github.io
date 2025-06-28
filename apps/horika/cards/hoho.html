@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hoho Card - Horika</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="hoho">
+	<div class="card-container" onclick="openHorikaApp()">
+		<div class="card">
+			<h1 class="horika-title">HORIKA</h1>
+
+			<div class="film-cylinder">
+				<img class="roll-svg" src="../images/roll.svg" alt="Film roll" />
+				<span class="film-text">HOHO</span>
+			</div>
+
+			<p class="subtitle">Hoho</p>
+		</div>
+
+		<button class="action-button" onclick="event.stopPropagation(); openHorikaApp();">
+			Add this film to library
+		</button>
+
+		<section class="cta">
+			<a href="https://apps.apple.com/us/app/horika/id6746124840" class="app-store-button" target="_blank"
+				rel="noopener">
+				<img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+					alt="Download on the App Store" width="200" height="60">
+			</a>
+			<p class="app-info">Free • Offers In-App Purchases • iOS 4+</p>
+		</section>
+	</div>
+
+	<script>
+		function openHorikaApp() {
+			// Try to open the custom URL scheme
+			const customUrl = 'horika://horika-card/Hoho';
+
+			// Create a temporary link to attempt opening the custom URL
+			const link = document.createElement('a');
+			link.href = customUrl;
+			link.style.display = 'none';
+			document.body.appendChild(link);
+
+			try {
+				// For mobile devices, we can try to open the custom scheme
+				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+					window.location.href = customUrl;
+				} else {
+					// For desktop, show an alert or fallback
+					alert('This card would open in the Horika app on a mobile device.\nURL: ' + customUrl);
+				}
+			} catch (error) {
+				console.log('Custom URL scheme not supported or app not installed');
+				alert('Horika app not found. Please install the Horika app to view this content.');
+			}
+
+			document.body.removeChild(link);
+		}
+
+		// Add click animation
+		document.querySelector('.card-container').addEventListener('mousedown', function () {
+			this.style.transform = 'translateY(-3px) scale(0.98)';
+		});
+
+		document.querySelector('.card-container').addEventListener('mouseup', function () {
+			this.style.transform = 'translateY(-5px) scale(1)';
+		});
+
+		document.querySelector('.card-container').addEventListener('mouseleave', function () {
+			this.style.transform = 'translateY(0) scale(1)';
+		});
+	</script>
+</body>
+
+</html>

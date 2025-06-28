@@ -21,6 +21,17 @@
 	--chi-button-end: #2A7FA7;
 	--chi-button-shadow: rgba(58, 143, 183, 0.3);
 	--chi-button-shadow-hover: rgba(58, 143, 183, 0.4);
+
+	/* Hoho Theme - White base */
+	--hoho-bg-start: #F8F9FA;
+	--hoho-bg-end: #E9ECEF;
+	--hoho-card-start: #FFFFFF;
+	--hoho-card-mid: #F8F9FA;
+	--hoho-card-end: #E9ECEF;
+	--hoho-button-start: #6C757D;
+	--hoho-button-end: #495057;
+	--hoho-button-shadow: rgba(108, 117, 125, 0.3);
+	--hoho-button-shadow-hover: rgba(108, 117, 125, 0.4);
 }
 
 /* Base Styles */
@@ -47,6 +58,11 @@ body.botan {
 /* Chi Theme Body */
 body.chi {
 	background: linear-gradient(135deg, var(--chi-bg-start) 0%, var(--chi-bg-end) 100%);
+}
+
+/* Hoho Theme Body */
+body.hoho {
+	background: linear-gradient(135deg, var(--hoho-bg-start) 0%, var(--hoho-bg-end) 100%);
 }
 
 .card-container {
@@ -81,6 +97,12 @@ body.chi {
 /* Chi Theme Card */
 .chi .card {
 	background: linear-gradient(135deg, var(--chi-card-start), var(--chi-card-mid), var(--chi-card-end));
+}
+
+/* Hoho Theme Card */
+.hoho .card {
+	background: linear-gradient(135deg, var(--hoho-card-start), var(--hoho-card-mid), var(--hoho-card-end));
+	border: 1px solid #DEE2E6;
 }
 
 .horika-title {
@@ -158,6 +180,17 @@ body.chi {
 .chi .action-button:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 6px 20px var(--chi-button-shadow-hover);
+}
+
+/* Hoho Theme Button */
+.hoho .action-button {
+	background: linear-gradient(135deg, var(--hoho-button-start), var(--hoho-button-end));
+	box-shadow: 0 4px 15px var(--hoho-button-shadow);
+}
+
+.hoho .action-button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px var(--hoho-button-shadow-hover);
 }
 
 .cta {
