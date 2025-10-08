@@ -130,6 +130,13 @@ main>p {
 	animation: slideInUp 0.6s ease-out forwards;
 	opacity: 0;
 	transform: translateY(20px);
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+
+	/* vertical card: icon on top, text below */
+	flex-direction: column;
+	text-align: center;
 }
 
 .app-link:nth-child(1) {
@@ -180,6 +187,40 @@ main>p {
 	background-clip: text;
 }
 
+.app-icon {
+	width: 96px;
+	height: 96px;
+	border-radius: 20px;
+	object-fit: cover;
+	flex-shrink: 0;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	background: rgba(255, 255, 255, 0.04);
+}
+
+.app-text {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.app-text h3 {
+	margin: 0 0 0.25rem 0;
+}
+
+.app-text p {
+	margin: 0;
+}
+
+.app-desc {
+	color: rgba(255, 255, 255, 0.85);
+	font-size: 0.98rem;
+	margin-top: 0.25rem;
+	max-width: 38ch;
+}
+
 .app-link p {
 	margin: 0;
 	opacity: 0.8;
@@ -217,13 +258,15 @@ main>p {
 		margin-bottom: 2rem;
 	}
 
-	.app-links {
-		grid-template-columns: 1fr;
-		gap: 1.5rem;
-	}
-
 	.app-link {
 		padding: 2rem 1.5rem;
+		align-items: center;
+	}
+
+	.app-icon {
+		width: 72px;
+		height: 72px;
+		border-radius: 16px;
 	}
 
 	.app-link h3 {
@@ -246,5 +289,20 @@ main>p {
 
 	.app-link {
 		padding: 1.5rem;
+		/* keep vertical layout on very small screens */
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.app-icon {
+		width: 56px;
+		height: 56px;
+		border-radius: 12px;
+	}
+
+	.app-text {
+		align-items: center;
+		text-align: center;
 	}
 }
