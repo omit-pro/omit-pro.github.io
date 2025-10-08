@@ -306,3 +306,15 @@ main>p {
 		text-align: center;
 	}
 }
+
+.site-footer {
+	text-align: center;
+	padding: 2rem 1rem;
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 0.95rem;
+}
+
+.site-footer a {
+	color: rgba(255, 255, 255, 0.95);
+	text-decoration: underline;
+}
