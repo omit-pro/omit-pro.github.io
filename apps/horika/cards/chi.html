@@ -9,8 +9,12 @@
 </head>
 
 <body class="chi">
-	<div class="card-container" onclick="openHorikaApp()">
-		<div class="card">
+	<div class="card-container">
+		<!-- decorative colorful blurred blobs for the liquid glass effect -->
+		<span class="blob blob-1" aria-hidden="true"></span>
+		<span class="blob blob-2" aria-hidden="true"></span>
+
+		<div class="card glass" onclick="openHorikaApp()">
 			<h1 class="horika-title">HORIKA</h1>
 
 			<div class="film-cylinder">
@@ -19,11 +23,13 @@
 			</div>
 
 			<p class="subtitle">Chi</p>
+
+			<button class="action-button" onclick="event.stopPropagation(); openHorikaApp();">
+				Add this film to library
+			</button>
 		</div>
 
-		<button class="action-button" onclick="event.stopPropagation(); openHorikaApp();">
-			Add this film to library
-		</button>
+		<hr />
 
 		<section class="cta">
 			<a href="https://apps.apple.com/us/app/horika/id6746124840" class="app-store-button" target="_blank"
