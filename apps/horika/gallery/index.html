@@ -28,6 +28,9 @@
 				</div>
 
 				<!-- view gallery button removed -->
+
+				<!-- Submit photo button (pure CSS toggle) -->
+				<label for="sheetToggle" class="button-submit-photo" role="button">Submit your photo</label>
 			</div>
 		</header>
 
@@ -52,6 +55,25 @@
 				Created by <a href="https://linjun.me" target="_blank" rel="noopener noreferrer">Jun Lin</a>.</small>
 		</div>
 	</footer>
+
+	<!-- Pure-CSS iOS-like bottom sheet: controlled by hidden checkbox -->
+	<input type="checkbox" id="sheetToggle" class="sheet-toggle" hidden aria-hidden="true">
+	<div class="sheet-overlay" aria-hidden="true">
+		<label for="sheetToggle" class="sheet-backdrop" aria-hidden="true"></label>
+		<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" aria-describedby="sheetDesc">
+			<div class="sheet-handle" aria-hidden="true"></div>
+			<div class="sheet-body">
+				<h2 id="sheetTitle">Share your photo</h2>
+				<p id="sheetDesc">You’re welcome to submit photos to this gallery. Please send your photo(s) by email to <a
+						href="mailto:horika+gallery@omit.pro">horika+gallery@omit.pro</a>. By submitting a photo you grant
+					permission for it to be used freely on this website.</p>
+				<p style="margin-top:.75rem; font-size:.95rem; color:#444;">Thanks — I may resize or convert images for the web.
+				</p>
+				<label for="sheetToggle" class="sheet-close button-submit-photo"
+					style="margin-top:1rem; display:inline-block;">Close</label>
+			</div>
+		</div>
+	</div>
 
 	<script>
 		// List of files in the images folder. Keep in sync with the folder contents.
@@ -171,6 +193,8 @@
 					document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
 				});
 			}
+
+
 		});
 	</script>
 </body>

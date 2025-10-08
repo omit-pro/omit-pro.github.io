@@ -68,6 +68,35 @@ body {
 	cursor: pointer;
 }
 
+/* Submit button/label used for the pure-CSS sheet toggle */
+.button-submit-photo {
+	display: inline-block;
+	margin-top: 1rem;
+	padding: 0.5rem 0.9rem;
+	border-radius: 999px;
+	border: 1px solid rgba(0, 0, 0, 0.85);
+	background: #fff;
+	color: var(--fg);
+	font-weight: 600;
+	cursor: pointer;
+	text-decoration: none;
+	transition: background 150ms ease, transform 90ms ease, box-shadow 150ms ease;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.button-submit-photo:hover {
+	background: #f6f6f6;
+}
+
+.button-submit-photo:active {
+	transform: translateY(1px);
+}
+
+.button-submit-photo:focus {
+	outline: 3px solid rgba(0, 0, 0, 0.06);
+	outline-offset: 3px;
+}
+
 /* Featured section: large randomly selected image */
 .featured {
 	display: flex;
@@ -181,4 +210,100 @@ body {
 
 .site-footer small {
 	font-size: 0.9rem;
+}
+
+/* iOS-like bottom sheet (pure CSS) */
+.sheet-toggle {
+	display: none;
+}
+
+.sheet-overlay {
+	position: fixed;
+	inset: 0;
+	display: none;
+	align-items: flex-end;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.18);
+	z-index: 100;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.sheet-backdrop {
+	position: absolute;
+	inset: 0;
+	cursor: default;
+}
+
+.sheet {
+	width: 100%;
+	max-width: 720px;
+	border-top-left-radius: 14px;
+	border-top-right-radius: 14px;
+	background: #fff;
+	box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15);
+	transform: translateY(100%);
+	transition: transform 320ms cubic-bezier(.22, 1, .36, 1);
+	will-change: transform;
+}
+
+.sheet-handle {
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.sheet-handle::before {
+	content: '';
+	width: 36px;
+	height: 5px;
+	background: rgba(0, 0, 0, 0.18);
+	border-radius: 999px;
+	display: block;
+}
+
+.sheet-body {
+	padding: 1rem 1.25rem 2rem;
+}
+
+.sheet h2 {
+	margin: 0 0 .5rem 0;
+	font-size: 1.125rem;
+}
+
+.sheet-close {
+	border: 1px solid #111;
+	background: transparent;
+	padding: 0.5rem 0.75rem;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+/* When the checkbox is checked, reveal overlay and slide up the sheet */
+.sheet-toggle:checked~.sheet-overlay {
+	display: flex;
+}
+
+.sheet-toggle:checked~.sheet-overlay .sheet {
+	transform: translateY(0%);
+}
+
+/* On small screens keep it tall, on larger screens limit height */
+@media (max-width: 420px) {
+	.sheet {
+		border-top-left-radius: 12px;
+		border-top-right-radius: 12px;
+	}
+}
+
+@media (min-width: 720px) {
+	.sheet {
+		border-radius: 12px;
+		width: 560px;
+		margin-bottom: 24px;
+	}
+
+	.sheet-overlay {
+		justify-content: center;
+	}
 }
