@@ -3,6 +3,15 @@
 	--bg: #fff;
 	--fg: #111;
 	--muted: #666;
+
+	/* Horika app palette — gentle purple/pink/blue hues */
+	--horika-1: #eecfff;
+	/* soft pink-lavender */
+	--horika-2: #cda3ff;
+	/* mid purple */
+	--horika-3: #8fd6ff;
+	/* soft sky blue */
+	--horika-accent: rgba(255, 255, 255, 0.14);
 }
 
 * {
@@ -36,7 +45,26 @@ body {
 .hero {
 	padding: 3rem 1rem;
 	text-align: center;
-	background: linear-gradient(180deg, #f7f7f7, #eee);
+	position: relative;
+	overflow: hidden;
+	/* layered animated gradient */
+	background: linear-gradient(90deg, var(--horika-1), var(--horika-2), var(--horika-3));
+	background-size: 300% 300%;
+	color: var(--fg);
+	transition: background 400ms ease;
+	animation: horikaGradientShift 12s ease-in-out infinite;
+}
+
+/* subtle, soft overlay to add texture and a highlight behind the header content */
+.hero .soft-light {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	mix-blend-mode: overlay;
+	background: radial-gradient(600px 300px at 10% 20%, rgba(255, 255, 255, 0.12), transparent 12%),
+		radial-gradient(500px 240px at 85% 80%, rgba(255, 255, 255, 0.06), transparent 14%);
+	filter: blur(18px) saturate(1.08);
+	opacity: 0.95;
 }
 
 .hero-content {
@@ -66,6 +94,12 @@ body {
 	border-radius: 999px;
 	font-weight: 600;
 	cursor: pointer;
+}
+
+/* App Store button */
+.app-store-button {
+	margin: 3.1rem;
+	display: block;
 }
 
 /* Submit button/label used for the pure-CSS sheet toggle */
@@ -139,6 +173,34 @@ body {
 	.separator {
 		width: 48px;
 		height: 5px;
+	}
+}
+
+/* gradient animation */
+@keyframes horikaGradientShift {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* Respect users' reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+	.hero {
+		animation: none;
+		background-size: auto;
+	}
+
+	.hero .soft-light {
+		filter: none;
+		opacity: 0.9;
 	}
 }
 
