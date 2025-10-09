@@ -38,7 +38,11 @@ body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 	color: var(--fg);
-	background: var(--bg);
+	/* Make the Horika animated gradient the full page background */
+	background: linear-gradient(90deg, var(--horika-1), var(--horika-2), var(--horika-3));
+	background-size: 300% 300%;
+	animation: horikaGradientShift 12s ease-in-out infinite;
+	min-height: 100vh;
 }
 
 /* Top header: title & description */
@@ -47,12 +51,9 @@ body {
 	text-align: center;
 	position: relative;
 	overflow: hidden;
-	/* layered animated gradient */
-	background: linear-gradient(90deg, var(--horika-1), var(--horika-2), var(--horika-3));
-	background-size: 300% 300%;
+	/* transparent so the page background shows through; content sits above the animated background */
+	background: transparent;
 	color: var(--fg);
-	transition: background 400ms ease;
-	animation: horikaGradientShift 12s ease-in-out infinite;
 }
 
 /* subtle, soft overlay to add texture and a highlight behind the header content */
@@ -83,7 +84,7 @@ body {
 	margin: 0 0 1rem 0;
 	color: var(--muted);
 	font-size: 1.2rem;
-	line-height: 1.4;
+	line-height: 2.7;
 }
 
 .hero-button {
