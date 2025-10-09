@@ -43,6 +43,8 @@
 		<section class="container">
 			<h1 class="sr-only">Gallery</h1>
 
+			<!-- Anchor used as close target for :target lightbox -->
+			<div id="gallery-anchor" aria-hidden="true"></div>
 			<div id="gallery" class="gallery" aria-live="polite"></div>
 		</section>
 	</main>
@@ -74,128 +76,7 @@
 		</div>
 	</div>
 
-	<script>
-		// List of files in the images folder. Keep in sync with the folder contents.
-		// These were converted to AVIF by the repo script; use .avif for better web performance.
-		const files = [
-			"IMG_7216.avif",
-			"IMG_7241.avif",
-			"IMG_7249.avif",
-			"IMG_7273.avif",
-			"IMG_7384.avif",
-			"IMG_7593.avif",
-			"IMG_7595.avif",
-			"IMG_7714.avif",
-			"IMG_7823.avif",
-			"IMG_7858.avif",
-			"IMG_7873.avif",
-			"IMG_7890.avif",
-			"IMG_7892.avif",
-			"IMG_7896.avif",
-			"IMG_7930.avif",
-			"IMG_7950.avif",
-			"IMG_7975.avif",
-			"IMG_8031.avif",
-			"IMG_8068.avif",
-			"IMG_8163.avif",
-			"IMG_8206.avif",
-			"IMG_8233.avif",
-			"IMG_8241.avif",
-			"IMG_8259.avif",
-			"IMG_8269.avif",
-			"IMG_8307.avif",
-			"IMG_8308.avif",
-			"IMG_8311.avif",
-			"IMG_8314.avif",
-			"IMG_8317.avif",
-			"IMG_8337.avif",
-			"IMG_8339.avif",
-			"IMG_8344.avif",
-			"IMG_8351.avif",
-			"IMG_8353.avif",
-			"IMG_8370.avif",
-			"IMG_8393.avif",
-			"IMG_8401.avif",
-			"IMG_8409.avif",
-			"IMG_8508.avif",
-			"IMG_8535.avif",
-			"IMG_8585.avif",
-			"IMG_8611.avif",
-			"IMG_8616.avif",
-		];
-
-		// The files array is explicit; use it directly.
-		const images = files;
-
-		function pickRandom(arr) {
-			if (!arr.length) return null;
-			return arr[Math.floor(Math.random() * arr.length)];
-		}
-
-		// Set the featured image (random large image below the header)
-		function setFeatured(src) {
-			const featured = document.getElementById('featured');
-			const img = document.getElementById('featuredImg');
-
-			img.src = `images/${src}`;
-			img.alt = src.replace(/[-_0-9]+/g, ' ').replace(/\.(heic|avif|jpe?g|png|webp|gif)$/i, '').trim();
-
-			img.onload = () => {
-				const ratio = img.naturalWidth / img.naturalHeight;
-				if (ratio >= 1) {
-					featured.classList.add('hero--cover');
-					img.classList.add('cover');
-				} else {
-					featured.classList.remove('hero--cover');
-					img.classList.remove('cover');
-				}
-			};
-
-			featured.setAttribute('data-src', src);
-		}
-
-		function renderGallery(list) {
-			const gallery = document.getElementById('gallery');
-			gallery.innerHTML = '';
-
-			list.forEach(name => {
-				const item = document.createElement('div');
-				item.className = 'gallery-item';
-
-				const img = document.createElement('img');
-				img.src = `images/${name}`;
-				img.alt = name.replace(/[-_0-9]+/g, ' ').replace(/\.(heic|avif|jpe?g|png|webp|gif)$/i, '').trim();
-				img.loading = 'lazy';
-				img.decoding = 'async';
-
-				item.appendChild(img);
-				gallery.appendChild(item);
-			});
-		}
-
-		// On load pick a random hero and render gallery (shuffled so order is varied)
-		document.addEventListener('DOMContentLoaded', () => {
-			// hero content remains static at the top
-
-			// pick a random featured image
-			const featuredFile = pickRandom(files);
-			if (featuredFile) setFeatured(featuredFile);
-
-			// render gallery as a flow/grid
-			const shuffled = files.slice().sort(() => Math.random() - 0.5);
-			renderGallery(shuffled);
-
-			// view gallery button was removed from the DOM; keep a guarded handler in case it's reintroduced elsewhere
-			const viewGalleryBtn = document.getElementById('viewGallery');
-			if (viewGalleryBtn) {
-				viewGalleryBtn.addEventListener('click', () => {
-					document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
-				});
-			}
-
-
-		});
-	</script>
+	<script src="script.js" defer></script>
 </body>
 
 </html>

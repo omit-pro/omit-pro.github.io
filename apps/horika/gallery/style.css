@@ -84,7 +84,7 @@ body {
 	margin: 0 0 1rem 0;
 	color: var(--muted);
 	font-size: 1.2rem;
-	line-height: 2.7;
+	line-height: 1.8;
 }
 
 .hero-button {
@@ -368,5 +368,150 @@ body {
 
 	.sheet-overlay {
 		justify-content: center;
+	}
+}
+
+
+
+/* --- PURE CSS :target LIGHTBOX (reworked) ------------------------------- */
+/* Simpler :target-based lightbox using a background-image on a span. */
+.lightbox {
+	/* Default to hidden */
+	display: none;
+
+	/* Overlay entire screen */
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	align-items: center;
+	justify-content: center;
+
+	/* A bit of padding around image */
+	padding: 1.5rem;
+
+	/* Frosted white glass overlay */
+	background: rgba(255, 255, 255, 0.6);
+	-webkit-backdrop-filter: blur(12px) saturate(120%);
+	backdrop-filter: blur(12px) saturate(120%);
+
+	/* allow scrolling if content taller than viewport */
+	overflow: auto;
+}
+
+/* Unhide the lightbox when it's the target */
+.lightbox:target {
+	display: flex;
+}
+
+.lightbox span {
+	/* Full width and height within padding */
+	display: block;
+	width: min(1100px, 96%);
+	height: 77vh;
+
+	/* Size and position background image */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	/* Make the span behave like an image box */
+	border-radius: 10px;
+	object-fit: contain;
+}
+
+/* Optional close control inside the lightbox; links back to the gallery anchor */
+.lightbox .lightbox-close {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	background: rgba(0, 0, 0, 0.06);
+	color: #111;
+	text-decoration: none;
+	font-size: 14px;
+	padding: .4rem .6rem;
+	border-radius: 6px;
+	border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 720px) {
+	.lightbox span {
+		height: 60vh;
+	}
+}
+
+/* New structure styles for info under the image */
+.lightbox {
+	/* ensure the overlay is able to contain scrollable panel content */
+	overflow: auto;
+}
+
+.lightbox-backdrop {
+	position: absolute;
+	inset: 0;
+	display: block;
+	background: transparent;
+	text-decoration: none;
+}
+
+.lb-panel {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	background: rgba(255, 255, 255, 0.95);
+	border-radius: 12px;
+	padding: 4rem 2.25rem;
+	box-shadow: 0 18px 50px rgba(3, 6, 12, 0.12);
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+}
+
+.lb-image {
+	width: 100%;
+	height: 100%;
+	max-height: 77vh;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	border-radius: 10px;
+	/* fallback while image loads */
+}
+
+.lb-info {
+	width: 100%;
+	max-width: 860px;
+	color: #111;
+	text-align: left;
+	font-size: 15px;
+	line-height: 1.45;
+}
+
+.lb-info h3 {
+	margin: 0 0 .25rem 0;
+	font-size: 1.125rem;
+}
+
+.lb-info p {
+	margin: 0 0 .5rem 0;
+	color: #333;
+}
+
+.lb-info a {
+	color: #1e66ff;
+	text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+	.lb-image {
+		height: 50vh;
+	}
+
+	.lb-info {
+		text-align: center;
 	}
 }
