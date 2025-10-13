@@ -1,129 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Locter - Privacy Policy</title>
 	<style>
 		body {
 			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-			padding: 1em;
+			padding: 1.25rem;
+			line-height: 1.5;
+			max-width: 900px;
+			margin: 0 auto;
+			color: #111;
+		}
+
+		h1,
+		h2 {
+			font-weight: 600;
+		}
+
+		code {
+			background: #f3f3f3;
+			padding: 0.15em 0.3em;
+			border-radius: 3px;
+			font-family: Menlo, Monaco, monospace;
+		}
+
+		footer {
+			margin-top: 2rem;
+			font-size: 0.95em;
+			color: #444;
 		}
 	</style>
 </head>
 
 <body>
-	<strong>Privacy Policy</strong>
-	<p>
-		Jun Lin built the Locter app as a Commercial app. This SERVICE is provided
-		by Jun Lin and is intended for use as is.
-	</p>
-	<p>
-		This page is used to inform visitors regarding my policies with the
-		collection, use, and disclosure of Personal Information if anyone decided
-		to use my Service.
-	</p>
-	<p>
-		If you choose to use my Service, then you agree to the collection and use
-		of information in relation to this policy. The Personal Information that I
-		collect is used for providing and improving the Service. I will not use or
-		share your information with anyone except as described in this Privacy
-		Policy.
-	</p>
-	<p>
-		The terms used in this Privacy Policy have the same meanings as in our
-		Terms and Conditions, which is accessible at Locter unless otherwise
-		defined in this Privacy Policy.
-	</p>
-	<p><strong>Information Collection and Use</strong></p>
-	<p>
-		For a better experience, while using our Service, I may require you to
-		provide us with certain personally identifiable information. The
-		information that I request will be retained on your device and is not
-		collected by me in any way.
-	</p>
-	<!---->
-	<p><strong>Log Data</strong></p>
-	<p>
-		I want to inform you that whenever you use my Service, in a case of an
-		error in the app I collect data and information (through third party
-		products) on your phone called Log Data. This Log Data may include
-		information such as your device Internet Protocol (“IP”) address, device
-		name, operating system version, the configuration of the app when
-		utilizing my Service, the time and date of your use of the Service, and
-		other statistics.
-	</p>
-	<p><strong>Cookies</strong></p>
-	<p>
-		Cookies are files with a small amount of data that are commonly used as
-		anonymous unique identifiers. These are sent to your browser from the
-		websites that you visit and are stored on your device's internal memory.
-	</p>
-	<p>
-		This Service does not use these “cookies” explicitly. However, the app may
-		use third party code and libraries that use “cookies” to collect
-		information and improve their services. You have the option to either
-		accept or refuse these cookies and know when a cookie is being sent to
-		your device. If you choose to refuse our cookies, you may not be able to
-		use some portions of this Service.
-	</p>
-	<p><strong>Service Providers</strong></p>
-	<p>
-		I may employ third-party companies and individuals due to the following
-		reasons:
-	</p>
+	<h1>Locter Privacy Policy</h1>
+	<p><strong>Last updated:</strong> October 13, 2025</p>
+
+	<p>This Privacy Policy explains how Locter (the "App"), developed by the project owner, collects, uses, stores, and
+		shares information from users. Locter is designed to keep your location data on your device and give you full
+		control over exports and backups.</p>
+
+	<h2>1. Data we collect</h2>
+
 	<ul>
-		<li>To facilitate our Service;</li>
-		<li>To provide the Service on our behalf;</li>
-		<li>To perform Service-related services; or</li>
-		<li>To assist us in analyzing how our Service is used.</li>
+		<li><strong>Location data:</strong> Locter collects your device's location (GPS coordinates, timestamp, accuracy,
+			altitude, speed, course) to detect where you have been and to generate visits and tracks. Location data is
+			collected when you grant location permissions (When In Use or Always). The App uses background location features
+			to track visits and locations when permitted. See the App's Info.plist keys:
+			<code>NSLocationWhenInUseUsageDescription</code> and <code>NSLocationAlwaysAndWhenInUseUsageDescription</code>.
+		</li>
+
+		<li><strong>Visit metadata:</strong> The App records detected visits (arrival/departure timestamps, coordinates,
+			horizontal accuracy) and may perform reverse geocoding to obtain a human-readable place name or address for
+			notifications and display.</li>
+
+		<li><strong>Local device files:</strong> Locter stores all collected location and visit data in a local database
+			located in the App Group container (<code>group.me.linjun.Locter</code>). The database filename used by the app is
+			<code>db.locterdb</code>.</li>
+
+		<li><strong>Photos (optional):</strong> If you grant Photo Library access, the App can match locations to your
+			photos to aid organization. Photo access is only used for local matching and not uploaded to external servers.
+		</li>
+
+		<li><strong>iCloud backups (optional):</strong> If you enable iCloud/Backups on your device, Locter can create
+			backups of your local database in your iCloud ubiquity container (<code>iCloud.me.linjun.Locter.backup</code>).
+			Backups are stored in your iCloud account and are managed by iCloud; Locter does not transmit data to any external
+			server besides your iCloud account.</li>
+
+		<li><strong>GPX exports:</strong> You can export selected track data as GPX files. Exported GPX files are generated
+			locally and saved/shared according to iOS share sheet behavior. The App does not automatically upload GPX files to
+			developer-run servers.</li>
 	</ul>
-	<p>
-		I want to inform users of this Service that these third parties have
-		access to your Personal Information. The reason is to perform the tasks
-		assigned to them on our behalf. However, they are obligated not to
-		disclose or use the information for any other purpose.
-	</p>
-	<p><strong>Security</strong></p>
-	<p>
-		I value your trust in providing us your Personal Information, thus we are
-		striving to use commercially acceptable means of protecting it. But
-		remember that no method of transmission over the internet, or method of
-		electronic storage is 100% secure and reliable, and I cannot guarantee its
-		absolute security.
-	</p>
-	<p><strong>Links to Other Sites</strong></p>
-	<p>
-		This Service may contain links to other sites. If you click on a
-		third-party link, you will be directed to that site. Note that these
-		external sites are not operated by me. Therefore, I strongly advise you to
-		review the Privacy Policy of these websites. I have no control over and
-		assume no responsibility for the content, privacy policies, or practices
-		of any third-party sites or services.
-	</p>
-	<p><strong>Children’s Privacy</strong></p>
-	<p>
-		These Services do not address anyone under the age of 13. I do not
-		knowingly collect personally identifiable information from children under
-		13. In the case I discover that a child under 13 has provided me with
-		personal information, I immediately delete this from our servers. If you
-		are a parent or guardian and you are aware that your child has provided us
-		with personal information, please contact me so that I will be able to do
-		necessary actions.
-	</p>
-	<p><strong>Changes to This Privacy Policy</strong></p>
-	<p>
-		I may update our Privacy Policy from time to time. Thus, you are advised
-		to review this page periodically for any changes. I will notify you of any
-		changes by posting the new Privacy Policy on this page.
-	</p>
-	<p>This policy is effective as of 2020-05-01</p>
-	<p><strong>Contact Us</strong></p>
-	<p>
-		If you have any questions or suggestions about my Privacy Policy, do not
-		hesitate to contact me at https://locter.app/contact.html.
-	</p>
+
+	<h2>2. How we use the data</h2>
+	<ul>
+		<li><strong>Provide core functionality:</strong> Location and visit data are used to detect places you've been,
+			display them in the app, and create timelines and maps.</li>
+		<li><strong>Notifications:</strong> The App may reverse-geocode visit locations to prepare user notifications about
+			places you visit.</li>
+		<li><strong>Exports & backups:</strong> When you choose to export or back up your data (manual or automatic iCloud
+			backups), the App creates files (GPX or database backups) and either hands them to the iOS share sheet or writes
+			them to your iCloud container.</li>
+	</ul>
+
+	<h2>3. Data sharing and third parties</h2>
+	<ul>
+		<li><strong>No developer servers:</strong> Locter does not send your location, visit, photo data, or backups to any
+			developer-controlled servers. There is no analytics or remote telemetry that collects personal data by default.
+		</li>
+		<li><strong>iCloud:</strong> Backups written to iCloud are stored under your iCloud account and are subject to
+			Apple's iCloud Terms and privacy. Locter only writes the database files to the iCloud ubiquity container when
+			iCloud is available and enabled on your device.</li>
+		<li><strong>System frameworks:</strong> Locter uses Apple frameworks (CoreLocation, CoreLocation Visit monitoring,
+			CLGeocoder) which may communicate with system services as part of their operation. For example, reverse geocoding
+			requests go through Apple's geocoding services. This is part of standard iOS functionality.</li>
+	</ul>
+
+	<h2>4. Data retention and deletion</h2>
+	<ul>
+		<li><strong>Local retention:</strong> All location and visit data is stored locally in the app's database
+			(<code>db.locterdb</code>) inside the App Group container. Data remains on the device until you delete it from
+			within the App or uninstall the App.</li>
+		<li><strong>Delete data:</strong> You can remove individual visits or locations from within the App's UI. To fully
+			delete all stored data, use the App's provided delete/clear data option (if available) or uninstall the App and
+			delete any iCloud backup files created by Locter.</li>
+		<li><strong>iCloud backups:</strong> Backups in iCloud remain until you delete them via the App's UI (if the App
+			exposes deletion) or via iCloud Drive management in iOS Settings / Files.</li>
+	</ul>
+
+	<h2>5. Your choices and controls</h2>
+	<ul>
+		<li><strong>Location permissions:</strong> You control location access in iOS Settings &gt; Privacy &amp; Security
+			&gt; Location Services &gt; Locter. You may choose "Never", "Ask Next Time", "While Using the App", or "Always".
+			The App recommends "Always" for the most accurate background tracking but will still work with limited
+			functionality if set to "While Using the App".</li>
+		<li><strong>Photo Library permissions:</strong> You can revoke Photo access in Settings &gt; Privacy &amp; Security
+			&gt; Photos &gt; Locter.</li>
+		<li><strong>Backups and exports:</strong> Automatic iCloud backups are optional and occur only if iCloud is enabled
+			on your device. You can disable iCloud Drive or delete backup files from iCloud using iOS Files or Settings.</li>
+		<li><strong>Exporting data:</strong> Use the App's export (GPX) feature to create shareable track files. The App
+			will present the standard iOS share sheet so you decide where to send or save exported files.</li>
+	</ul>
+
+	<h2>6. Security</h2>
+	<p><strong>On-device storage:</strong> Collected data is kept on your device and in your iCloud account if you opt
+		into backups. When stored locally, the database file is stored in the App Group container. The App does not
+		implement server-side storage or remote endpoints.</p>
+	<p><strong>Transmission:</strong> When you share or export data using the iOS share sheet or write backups to iCloud,
+		the transmission security is handled by Apple's platform and the receiving service you choose (for example, AirDrop,
+		Files, or third-party apps).</p>
+
+	<h2>7. Children</h2>
+	<p>Locter is not intended for children under 13. The App does not knowingly collect personal data from children under
+		13.</p>
+
+	<h2>8. Changes to this Privacy Policy</h2>
+	<p>We may update this policy to reflect changes to the App. When we do, the "Last updated" date at the top will be
+		changed. Significant changes will be posted in the repository's README or release notes.</p>
+
+	<h2>9. Contact</h2>
+	<p>For questions about this privacy policy, please contact the app owner at <a
+			href="mailto:locter+support@omit.pro">locter+support@omit.pro</a>.</p>
+
+	<h2>Appendix — Technical notes (for app reviewers and technical users)</h2>
+	<ul>
+		<li><strong>Location APIs used:</strong> CoreLocation (<code>startUpdatingLocation</code>,
+			<code>startMonitoringVisits</code>, <code>startMonitoringSignificantLocationChanges</code>, region monitoring).
+			The App requests both WhenInUse and Always location authorizations.</li>
+		<li><strong>Storage:</strong> GRDB-backed SQLite database stored as <code>db.locterdb</code> inside the App Group
+			container <code>group.me.linjun.Locter</code>.</li>
+		<li><strong>iCloud backup container:</strong> <code>iCloud.me.linjun.Locter.backup</code>. Automatic backups name
+			files under <code>auto-backup</code> and may rotate up to a configured number of backups.</li>
+		<li><strong>Photo usage:</strong> Photo access is used to auto-match photos to recorded locations locally; no photo
+			data is uploaded elsewhere by the App.</li>
+	</ul>
+
+	<footer>
+		<p>Effective date: October 13, 2025</p>
+	</footer>
+
 </body>
 
 </html>
