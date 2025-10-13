@@ -1,14 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hamster Authenticator - Privacy</title>
-</head>
-<body>
-  <h1>Hamster Authenticator - Privacy</h1>
 
-  <p>Hamster does not collect information to identify who you are.</p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hamster Authenticator — Privacy Policy</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      padding: 1.25rem;
+      line-height: 1.5;
+      max-width: 900px;
+      margin: 0 auto;
+      color: #111;
+    }
+
+    h1,
+    h2 {
+      font-weight: 600;
+    }
+
+    code {
+      background: #f3f3f3;
+      padding: 0.15em 0.3em;
+      border-radius: 3px;
+      font-family: Menlo, Monaco, monospace;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.95em;
+      color: #444;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Hamster Authenticator — Privacy Policy</h1>
+  <p><strong>Effective date:</strong> October 13, 2025</p>
+
+  <p>This Privacy Policy explains how Hamster Authenticator ("we", "our", "the App") collects, uses, stores, and shares
+    information when you install and use the App on iPhone, iPad, macOS, and Apple Watch. If you have questions about
+    this policy or our practices, contact us at: <a href="mailto:hamster+support@omit.pro">hamster+support@omit.pro</a>
+  </p>
+
+  <h2>Summary</h2>
+  <ul>
+    <li>The App is a local authenticator for generating time-based one-time passwords (TOTP). All critical operations
+      (TOTP generation, QR parsing) happen on your device.</li>
+    <li>Secrets (TOTP shared secrets) are stored in the device Keychain. Keychain items are marked synchronizable, which
+      allows iCloud Keychain synchronization across your devices if you have iCloud Keychain enabled.</li>
+    <li>The App may request access to the camera to let you scan QR codes to add accounts. The camera feed is used only
+      for scanning QR codes and is not stored or uploaded.</li>
+    <li>The App does not collect analytics, crash reporting, advertising identifiers, or other telemetry by default, and
+      it does not send authentication secrets to any external servers.</li>
+  </ul>
+
+  <h2>Data we collect and why</h2>
+
+  <h3>1) Information you provide directly</h3>
+  <p>TOTP shared secrets, account labels, and issuer names: These are provided when you add an account to the App
+    (manually or by scanning a QR code). We store these secrets locally in the Keychain so the App can generate one-time
+    passwords.</p>
+
+  <h3>2) Device data and settings</h3>
+  <p><strong>Keychain metadata:</strong> The App uses the Keychain to persist entries. The Keychain entries include an
+    identifier (UUID) and the account data encoded as JSON. The App sets the Keychain items as synchronizable. This
+    allows iCloud Keychain to sync your accounts between your devices if you have iCloud Keychain enabled; enabling
+    syncing is controlled by the user’s iCloud settings, not by the App.</p>
+
+  <h3>3) Camera access</h3>
+  <p><strong>Purpose:</strong> The App requests camera permission solely to scan QR codes when you choose to add a new
+    account by scanning. The QR image or camera frames are not saved to disk and are not uploaded to any server.</p>
+
+  <h3>4) Safari extension interaction</h3>
+  <p>The App includes a Safari web extension component that can request one-time tokens from the main app via
+    inter-process messages. The extension communicates locally with the host App to read stored account entries and
+    generate tokens on demand. These communications are local to the device. The extension code in the repository does
+    not send data to remote servers.</p>
+
+  <h2>What we do NOT collect or share</h2>
+  <ul>
+    <li>We do not send your TOTP secrets, labels, or generated tokens to any external servers.</li>
+    <li>We do not include third-party analytics, crash-reporting SDKs, advertising, or behavioral tracking in the App
+      (based on the present source code).</li>
+    <li>We do not access contacts, location, photos, or other personal data beyond the camera (for QR scanning) and the
+      Keychain entries you explicitly add.</li>
+  </ul>
+
+  <h2>How your data is stored and protected</h2>
+  <ul>
+    <li><strong>Keychain:</strong> Account secrets and related metadata are stored encrypted in the device Keychain
+      using the system Keychain APIs (the project uses the KeychainAccess library). The App marks items synchronizable
+      which may allow iCloud Keychain to back up and sync them across the user's devices.</li>
+    <li><strong>Local-only generation:</strong> TOTP generation is performed locally on the device using CryptoKit.
+      Secrets are never serialized and transmitted to external servers by the App.</li>
+    <li><strong>App sandboxing and entitlements:</strong> On macOS and iOS the App runs in the platform sandbox and
+      declares app group and keychain-access entitlements to support secure storage and extension-host communication.
+    </li>
+  </ul>
+
+  <h2>Third-party services and libraries</h2>
+  <p>The App uses open-source libraries (for example, KeychainAccess) to interact with the Keychain. These libraries
+    operate locally. No networked third-party services are used for telemetry or secret storage in the App code
+    inspected.</p>
+
+  <h2>User choices and controls</h2>
+  <ul>
+    <li><strong>Camera access:</strong> You can enable or disable camera access in your device settings. If you deny
+      camera access, you can still add accounts manually by entering the secret and issuer.</li>
+    <li><strong>iCloud Keychain sync:</strong> Whether Keychain items synchronize across your devices is controlled by
+      your iCloud Keychain settings. To prevent syncing of your authenticator accounts via iCloud, disable iCloud
+      Keychain in your device settings.</li>
+    <li><strong>Deleting accounts:</strong> You can remove any stored account from the App; removal deletes the
+      corresponding Keychain item. Note that if iCloud Keychain sync is enabled, deletion will propagate to other
+      devices using the same iCloud account.</li>
+  </ul>
+
+  <h2>Retention</h2>
+  <p>We retain the account data you store for as long as it remains in your Keychain. If you delete the App or remove an
+    account, the App will remove the corresponding Keychain entries. Backups or iCloud-synced copies may persist
+    according to Apple’s backup and iCloud retention policies.</p>
+
+  <h2>Children</h2>
+  <p><strong>App Store age rating:</strong> 4+. The App is appropriate for users aged 4 and older according to App Store
+    guidelines.</p>
+  <p>We do not knowingly target or collect personal information from children under 13.</p>
+
+  <h2>Changes to this privacy policy</h2>
+  <p>We may update this policy from time to time to reflect changes in the App or legal requirements. If we make
+    material changes, we will update the Effective Date above.</p>
+
+  <h2>Contact us</h2>
+  <p>For questions, requests, or concerns about privacy, please contact: <a
+      href="mailto:hamster+support@omit.pro">hamster+support@omit.pro</a></p>
+
+  <footer>
+    <p>Effective date: October 13, 2025</p>
+  </footer>
+
 </body>
+
 </html>
