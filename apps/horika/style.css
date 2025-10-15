@@ -1,234 +1,357 @@
+/* Base layout and typography --------------------------------------------- */
+:root {
+	/* Bright theme tokens requested: #81C7D4, #E87A90, #FEDFE1 */
+	--accent-a: #81C7D4;
+	/* cool cyan */
+	--accent-b: #E87A90;
+	/* warm pink */
+	--accent-c: #FEDFE1;
+	/* pale highlight */
+	--bg: #fff;
+	--card: #ffffff;
+	--muted: #55606a;
+	--glass: rgba(0, 0, 0, 0.03);
+	--max-width: 980px;
+	--radius: 12px;
+
+	/* Spacing scale (t-shirt sizes) */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 24px;
+	--space-6: 32px;
+	--space-7: 48px;
+	--space-8: 64px;
+
+	/* Container padding clamp for responsive gutters */
+	--container-pad: clamp(var(--space-4), 4vw, var(--space-6));
+
+	/* Typographic scale */
+	--base-size: 16px;
+	/* used as reference */
+	--lead: 1.5;
+	/* line-height multiplier for lead paragraphs */
+	--measure: 66ch;
+	/* comfortable measure for text blocks */
+}
+
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+	box-sizing: border-box
+}
+
+html,
+html {
+	font-size: var(--base-size);
 }
 
 body {
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-	line-height: 1.6;
-	color: #333;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-	min-height: 100vh;
+	height: 100%
+}
+
+body {
+	margin: 0;
+	font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	background: linear-gradient(180deg, var(--accent-a) 0%, var(--accent-c) 100%);
+	color: #0b1520;
+	/* dark text for contrast on bright background */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1.45;
+	font-size: 1rem;
+	/* equals --base-size */
 }
 
 .container {
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 2rem;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	max-width: var(--max-width);
+	margin: var(--space-7) auto var(--space-6);
+	padding: var(--space-6) var(--container-pad) var(--space-5);
 }
 
 header {
+	display: flex;
+	/* fix invalid value */
+	flex-direction: column;
+	/* stack icon and text */
+	align-items: center;
+	/* center horizontally */
+	justify-content: center;
 	text-align: center;
-	margin-bottom: 3rem;
+	/* center text inside */
+	gap: var(--space-4);
+	margin-bottom: var(--space-6);
+}
+
+.header-meta {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* center inner elements */
+	gap: 6px;
+}
+
+.header-text .slogan {
+	margin: 0;
+	font-size: 1rem;
+	color: var(--accent-a);
+	font-weight: 600
+}
+
+.header-text .tagline {
+	margin: 0;
+	color: var(--muted);
+	font-size: 0.92rem
 }
 
 .app-icon {
-	margin-bottom: 1rem;
+	width: 64px;
+	height: 64px;
+	background: linear-gradient(180deg, var(--accent-c), #ffffff);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 12px;
+	box-shadow: 0 8px 20px rgba(24, 36, 50, 0.06);
+	border: 1px solid rgba(11, 21, 32, 0.06);
 }
 
 .app-icon-img {
-	width: 120px;
-	height: 120px;
-	border-radius: 25px;
-	margin: 0 auto;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-	display: block;
+	width: 48px;
+	height: 48px;
+	object-fit: contain;
+	display: block
 }
 
 .app-name {
-	font-size: 2.5rem;
+	font-size: 1.25rem;
+	margin: 0;
 	font-weight: 700;
-	color: white;
-	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-	margin-bottom: 0.5rem;
+	letter-spacing: 0.2px;
 }
 
+/* Hero --------------------------------------------------------------- */
 .hero {
-	text-align: center;
-	margin-bottom: 3rem;
-	background: rgba(255, 255, 255, 0.1);
-	padding: 2.5rem;
-	border-radius: 20px;
-	backdrop-filter: blur(10px);
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+	border-radius: calc(var(--radius) + 4px);
+	padding: var(--space-6) clamp(var(--space-5), 5vw, var(--space-7));
+	margin: 0 auto var(--space-6);
+	max-width: 760px;
 }
 
 .slogan {
-	font-size: 2rem;
-	font-weight: 600;
-	color: white;
-	margin-bottom: 1rem;
-	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+	margin: 0 0 10px 0;
+	font-size: 1.3rem;
+	color: var(--accent-a);
+	font-weight: 700;
+	letter-spacing: 0.1px;
 }
 
 .tagline {
-	font-size: 1.2rem;
-	color: rgba(255, 255, 255, 0.9);
-	margin-bottom: 1.5rem;
-	font-style: italic;
+	margin: 0 0 12px 0;
+	color: var(--muted);
+	max-width: var(--measure);
 }
 
 .description {
-	font-size: 1.1rem;
-	color: rgba(255, 255, 255, 0.85);
-	max-width: 600px;
-	margin: 0 auto;
-	line-height: 1.7;
+	margin: 0 0 10px 0;
+	color: #14262f;
+	max-width: var(--measure);
+	line-height: var(--lead);
 }
 
-.cta {
-	text-align: center;
-	margin-bottom: 3rem;
-}
-
-.app-store-button {
+.gallery-link {
 	display: inline-block;
-	margin-bottom: 1rem;
-	transition: transform 0.2s ease;
-	border: none;
-	outline: none;
+	margin-top: var(--space-3);
 	text-decoration: none;
+	background: linear-gradient(180deg, var(--accent-a), var(--accent-b));
+	color: #fff;
+	padding: var(--space-3) var(--space-5);
+	border-radius: var(--radius);
+	font-weight: 600;
+	letter-spacing: .3px;
+	transition: transform .16s ease, box-shadow .18s ease, opacity .12s ease;
 }
 
-.app-store-button:hover {
-	transform: scale(1.05);
+.gallery-link:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 12px 30px rgba(129, 199, 212, 0.16);
+	opacity: 0.98
+}
+
+/* Center the wrapper that contains the gallery link */
+section>div:has(> .gallery-link) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 12px 0;
+}
+
+/* CTA / App store --------------------------------------------------- */
+.cta {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-3);
+	margin: var(--space-7) 0 var(--space-6);
 }
 
 .app-store-button img {
-	border-radius: 8px;
-	border: none;
-	outline: none;
 	display: block;
-}
-
-/* Gallery link styled as a centered pill button inside the hero */
-.gallery-link {
-	display: inline-block;
-	margin: 1.25rem auto 0;
-	background: rgba(255, 255, 255, 0.16);
-	color: white;
-	padding: 0.7rem 1.2rem;
-	border-radius: 999px;
-	text-decoration: none;
-	font-weight: 700;
-	font-size: 1rem;
-	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-	border: 1px solid rgba(255, 255, 255, 0.14);
-	transition: background 0.15s ease, transform 0.12s ease, box-shadow 0.12s ease;
-}
-
-.gallery-link:hover,
-.gallery-link:focus {
-	background: rgba(255, 255, 255, 0.26);
-	transform: translateY(-3px);
-	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
-}
-
-/* If gallery link lives inside .hero, make sure it centers nicely */
-.hero .gallery-link {
-	display: inline-block;
+	border-radius: 10px;
+	max-width: 240px;
+	width: 100%;
+	height: auto;
 }
 
 .app-info {
-	color: rgba(255, 255, 255, 0.8);
-	font-size: 0.9rem;
+	color: var(--muted);
+	margin: 0;
+	text-align: center;
 }
 
+/* Features and cards ------------------------------------------------ */
 .features {
+	margin-top: var(--space-7);
+}
+
+.features h3 {
+	margin: 8px 0 14px 0
+}
+
+.feature-cards {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 1.5rem;
-	margin-bottom: 2rem;
-	width: 100%;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: var(--space-4);
 }
 
-.feature {
-	background: rgba(255, 255, 255, 0.1);
-	padding: 1.5rem;
-	border-radius: 15px;
-	text-align: center;
-	backdrop-filter: blur(10px);
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
+.card {
+	background: linear-gradient(180deg, #fff, #fff);
+	padding: var(--space-5) var(--space-5) var(--space-4);
+	border-radius: var(--radius);
+	box-shadow: 0 4px 14px rgba(14, 28, 40, 0.05);
+	border: 1px solid rgba(11, 21, 32, 0.06);
+	position: relative;
 }
 
-.feature:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+.card::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	pointer-events: none;
+	background: linear-gradient(120deg, rgba(129, 199, 212, 0.08), rgba(232, 122, 144, 0.08) 60%, rgba(254, 223, 225, 0.08));
+	opacity: 0;
+	transition: opacity .3s ease;
 }
 
-.feature-icon {
-	font-size: 2rem;
-	display: block;
-	margin-bottom: 0.5rem;
+.card:hover::after {
+	opacity: 1;
 }
 
-.feature p {
-	color: rgba(255, 255, 255, 0.9);
-	font-size: 1rem;
-	font-weight: 500;
+.card-title {
+	margin: 0 0 var(--space-2) 0;
+	font-size: 1.04rem;
+	color: #10202a;
 }
 
+.card-body {
+	margin: 0;
+	color: var(--muted);
+	font-size: 0.95rem
+}
+
+.promo {
+	margin: var(--space-5) 0 var(--space-3) 0;
+	color: #123243;
+}
+
+.keywords {
+	margin: 0;
+	color: var(--muted);
+	font-size: 0.9rem
+}
+
+/* Footer ------------------------------------------------------------ */
 footer {
-	text-align: center;
-	margin-top: auto;
-	padding-top: 2rem;
+	margin-top: var(--space-8);
+	padding-top: var(--space-4);
+	border-top: 1px solid rgba(11, 21, 32, 0.08);
+	color: var(--muted);
+	font-size: 0.88rem;
 }
 
-footer p {
-	color: rgba(255, 255, 255, 0.6);
-	font-size: 0.9rem;
+footer a {
+	color: var(--accent-b);
+	text-decoration: none;
+	font-weight: 600
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
+footer a:hover {
+	text-decoration: underline
+}
+
+/* Responsive tweaks ------------------------------------------------- */
+@media (max-width:860px) {
 	.container {
-		padding: 1rem;
-	}
-
-	.app-name {
-		font-size: 2rem;
-	}
-
-	.slogan {
-		font-size: 1.5rem;
+		margin: var(--space-6) auto var(--space-5);
+		padding: var(--space-5) var(--space-5) var(--space-4);
 	}
 
 	.hero {
-		padding: 1.5rem;
-	}
-
-	.features {
-		grid-template-columns: 1fr;
-	}
-
-	.app-icon-img {
-		width: 100px;
-		height: 100px;
+		padding: var(--space-5) var(--space-5) var(--space-5);
 	}
 }
 
-@media (max-width: 480px) {
+@media (max-width:420px) {
 	.app-name {
-		font-size: 1.8rem;
+		font-size: 1.08rem
 	}
 
 	.slogan {
-		font-size: 1.3rem;
+		font-size: 1rem
 	}
 
-	.description {
-		font-size: 1rem;
+	header {
+		gap: var(--space-3);
 	}
 
-	.app-store-button img {
-		width: 180px;
-		height: auto;
+	.app-icon {
+		width: 52px;
+		height: 52px
+	}
+
+	.app-icon-img {
+		width: 40px;
+		height: 40px
+	}
+
+	.card {
+		padding: var(--space-4) var(--space-4) var(--space-3);
 	}
 }
+
+/* Accessibility helpers -------------------------------------------- */
+a:focus,
+button:focus {
+	outline: 3px solid rgba(232, 185, 138, 0.18);
+	outline-offset: 3px
+}
+
+/* Small utility classes --------------------------------------------- */
+.muted {
+	color: var(--muted)
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0
+}
+
+/* End of file ------------------------------------------------------- */
