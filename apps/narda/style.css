@@ -48,7 +48,8 @@ body {
 }
 
 .container {
-	height: 100vh;
+	/* Allow content to grow while keeping footer near the bottom on short pages */
+	min-height: 100vh;
 	max-width: var(--max-width);
 	margin: var(--space-7) auto var(--space-6);
 	padding: var(--space-6) var(--container-pad) var(--space-5);
@@ -112,6 +113,41 @@ header {
 	padding: var(--space-6) clamp(var(--space-5), 5vw, var(--space-7));
 	margin: 0 auto var(--space-6);
 	max-width: 760px
+}
+
+/* Screenshots gallery styles for apps/narda/images/screenshots */
+.screenshots {
+	margin-top: var(--space-6);
+}
+
+.screenshot-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: var(--space-4);
+	align-items: start;
+}
+
+.screenshot-card {
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
+	border-radius: 10px;
+	padding: 8px;
+	display: block;
+	text-align: center;
+	border: 1px solid rgba(11, 21, 32, 0.04);
+}
+
+.screenshot-card img {
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 6px;
+	object-fit: cover;
+}
+
+.screenshots-empty {
+	color: var(--muted);
+	padding: var(--space-4);
+	text-align: center;
 }
 
 .description {
