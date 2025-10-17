@@ -205,3 +205,24 @@ footer {
 }
 
 /* End */
+
+.testflight-link {
+	display: inline-block;
+	margin-top: var(--space-3);
+	text-decoration: none;
+	background: var(--accent-a);
+	color: #fff;
+	padding: var(--space-3) var(--space-5);
+	border-radius: var(--radius);
+	font-weight: 600;
+	transition: background-color 0.3s ease;
+}
+
+.testflight-link:hover {
+	background: var(--accent-b);
+}
+
+.testflight-link:focus {
+	outline: 2px solid var(--accent-b);
+	outline-offset: 2px;
+}
