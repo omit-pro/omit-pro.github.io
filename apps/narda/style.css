@@ -1,0 +1,207 @@
+/* Narda app styles - modeled after Horika with a cooler palette */
+:root {
+	--accent-a: #7EC9B6;
+	/* mint */
+	--accent-b: #F6C85F;
+	/* warm gold */
+	--accent-c: #FFF3E0;
+	/* pale */
+	--bg: #fff;
+	--card: #ffffff;
+	--muted: #55606a;
+	--glass: rgba(0, 0, 0, 0.03);
+	--max-width: 980px;
+	--radius: 12px;
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 24px;
+	--space-6: 32px;
+	--space-7: 48px;
+	--space-8: 64px;
+	--container-pad: clamp(var(--space-4), 4vw, var(--space-6));
+	--base-size: 16px;
+	--lead: 1.5;
+	--measure: 66ch;
+}
+
+* {
+	box-sizing: border-box
+}
+
+html {
+	font-size: var(--base-size);
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	background: linear-gradient(180deg, var(--accent-a) 0%, var(--accent-c) 100%);
+	color: #0b1520;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1.45;
+}
+
+.container {
+	height: 100vh;
+	max-width: var(--max-width);
+	margin: var(--space-7) auto var(--space-6);
+	padding: var(--space-6) var(--container-pad) var(--space-5);
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-4);
+	margin-bottom: var(--space-6);
+	text-align: center
+}
+
+.app-icon {
+	width: 72px;
+	height: 72px;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* Removed gradient, border and shadow per request — keep the icon itself unframed */
+	background: transparent;
+	box-shadow: none;
+	border: none;
+}
+
+.app-icon img {
+	width: 56px;
+	height: 56px;
+	object-fit: contain;
+	display: block
+}
+
+.app-name {
+	font-size: 1.3rem;
+	margin: 0;
+	font-weight: 700
+}
+
+.slogan {
+	margin: 0;
+	font-size: 1rem;
+	/* Improve contrast against the colorful background */
+	color: #062e2a;
+	/* darker teal for legibility */
+	font-weight: 700;
+	display: inline-block;
+	padding: 6px 10px;
+}
+
+.tagline {
+	margin: 0;
+	color: var(--muted)
+}
+
+.hero {
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+	border-radius: calc(var(--radius) + 4px);
+	padding: var(--space-6) clamp(var(--space-5), 5vw, var(--space-7));
+	margin: 0 auto var(--space-6);
+	max-width: 760px
+}
+
+.description {
+	margin: 0 0 10px 0;
+	color: #102a26;
+	max-width: var(--measure);
+	line-height: var(--lead)
+}
+
+.gallery-link {
+	display: inline-block;
+	margin-top: var(--space-3);
+	text-decoration: none;
+	background: linear-gradient(180deg, var(--accent-a), var(--accent-b));
+	color: #fff;
+	padding: var(--space-3) var(--space-5);
+	border-radius: var(--radius);
+	font-weight: 600
+}
+
+.cta {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-3);
+	margin: var(--space-7) 0 var(--space-6)
+}
+
+.app-info {
+	color: var(--muted);
+	margin: 0
+}
+
+.features {
+	margin-top: var(--space-7)
+}
+
+.feature-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: var(--space-4)
+}
+
+.card {
+	background: linear-gradient(180deg, #fff, #fff);
+	padding: var(--space-5);
+	border-radius: var(--radius);
+	box-shadow: 0 4px 14px rgba(14, 28, 40, 0.05);
+	border: 1px solid rgba(11, 21, 32, 0.06)
+}
+
+.card-title {
+	margin: 0 0 8px 0;
+	font-size: 1.02rem
+}
+
+.card-body {
+	margin: 0;
+	color: var(--muted)
+}
+
+footer {
+	margin-top: var(--space-8);
+	padding-top: var(--space-4);
+	border-top: 1px solid rgba(11, 21, 32, 0.08);
+	color: var(--muted);
+	font-size: 0.88rem
+}
+
+@media (max-width:860px) {
+	.container {
+		margin: var(--space-6) auto var(--space-5);
+		padding: var(--space-5)
+	}
+
+	.hero {
+		padding: var(--space-5)
+	}
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0
+}
+
+/* End */
