@@ -55,6 +55,24 @@ body {
 	padding: var(--space-6) var(--container-pad) var(--space-5);
 }
 
+.breadcrumb {
+	margin-bottom: var(--space-5);
+}
+
+.home-link {
+	display: inline-block;
+	color: #0b1520;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 0.95rem;
+	transition: color .2s ease, transform .16s ease;
+}
+
+.home-link:hover {
+	color: var(--accent-b);
+	transform: translateX(-2px);
+}
+
 header {
 	display: flex;
 	flex-direction: column;
