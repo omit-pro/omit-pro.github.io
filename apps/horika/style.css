@@ -68,6 +68,24 @@ body {
 	padding: var(--space-6) var(--container-pad) var(--space-5);
 }
 
+.breadcrumb {
+	margin-bottom: var(--space-5);
+}
+
+.home-link {
+	display: inline-block;
+	color: #0b1520;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 0.95rem;
+	transition: color .2s ease, transform .16s ease;
+}
+
+.home-link:hover {
+	color: var(--accent-b);
+	transform: translateX(-2px);
+}
+
 header {
 	display: flex;
 	/* fix invalid value */
@@ -93,7 +111,7 @@ header {
 .header-text .slogan {
 	margin: 0;
 	font-size: 1rem;
-	color: var(--accent-a);
+	color: #0b1520;
 	font-weight: 600
 }
 
@@ -184,6 +202,32 @@ section>div:has(> .gallery-link) {
 	justify-content: center;
 	align-items: center;
 	padding: 12px 0;
+}
+
+/* Cards CTA --------------------------------------------------------- */
+.cards-cta {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: var(--space-5) 0;
+}
+
+.cards-link {
+	display: inline-block;
+	text-decoration: none;
+	background: linear-gradient(180deg, var(--accent-b), rgba(232, 122, 144, 0.85));
+	color: #fff;
+	padding: var(--space-3) var(--space-5);
+	border-radius: var(--radius);
+	font-weight: 600;
+	letter-spacing: .3px;
+	transition: transform .16s ease, box-shadow .18s ease, opacity .12s ease;
+}
+
+.cards-link:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 12px 30px rgba(232, 122, 144, 0.16);
+	opacity: 0.98
 }
 
 /* CTA / App store --------------------------------------------------- */

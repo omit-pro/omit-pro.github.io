@@ -442,22 +442,97 @@ body.hoho {
 .horika-title {
 	font-size: 30px;
 	font-weight: 800;
-	color: rgba(22, 24, 30, 0.95);
+	color: white;
 	margin-bottom: 18px;
 	letter-spacing: 2px;
 }
 
+.botan .horika-title,
+.chi .horika-title {
+	color: white;
+}
+
+.hoho .horika-title {
+	color: rgba(22, 24, 30, 0.95);
+}
+
 .subtitle {
 	font-size: 18px;
-	color: rgba(34, 34, 34, 0.7);
+	color: white;
 	font-weight: 600;
 	margin-top: 8px;
+	opacity: 0.9;
+}
+
+.botan .subtitle,
+.chi .subtitle {
+	color: white;
+}
+
+.hoho .subtitle {
+	color: rgba(34, 34, 34, 0.7);
 }
 
 .app-info {
 	margin-top: 10px;
 	font-size: 14px;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.botan .app-info,
+.chi .app-info {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.hoho .app-info {
 	color: #666;
+}
+
+/* Back navigation link */
+.back-nav {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	z-index: 100;
+}
+
+.back-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 16px;
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 12px;
+	color: white;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 600;
+	transition: all 0.22s ease;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.back-link:hover {
+	background: rgba(255, 255, 255, 0.25);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.back-link::before {
+	content: '←';
+	font-size: 18px;
+}
+
+.hoho .back-link {
+	color: rgba(22, 24, 30, 0.95);
+	background: rgba(0, 0, 0, 0.08);
+	border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.hoho .back-link:hover {
+	background: rgba(0, 0, 0, 0.12);
 }
 
 /* Responsive Design */
@@ -478,6 +553,16 @@ body.hoho {
 	.film-text {
 		font-size: 16px;
 		letter-spacing: 3px;
+	}
+
+	.back-nav {
+		top: 10px;
+		left: 10px;
+	}
+
+	.back-link {
+		padding: 8px 12px;
+		font-size: 13px;
 	}
 }
 
@@ -506,11 +591,222 @@ body.hoho {
 	.play-btn,
 	.botan .action-button,
 	.chi .action-button,
-	.hoho .action-button {
+	.hoho .action-button,
+	.back-link,
+	.back-link:hover {
 		transition: none !important;
 		animation: none !important;
 		transform: none !important;
 	}
 
 	/* blob rules removed */
+}
+
+/* Index Page Styles */
+body.index {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	min-height: 100vh;
+	padding: 40px 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	position: relative;
+}
+
+body.index .back-nav {
+	position: fixed;
+}
+
+body.index .back-link {
+	color: white;
+	background: rgba(255, 255, 255, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+body.index .back-link:hover {
+	background: rgba(255, 255, 255, 0.25);
+}
+
+.page-header {
+	text-align: center;
+	margin-bottom: 50px;
+	color: white;
+}
+
+.page-title {
+	font-size: 48px;
+	font-weight: 900;
+	margin-bottom: 10px;
+	letter-spacing: 3px;
+}
+
+.page-subtitle {
+	font-size: 20px;
+	font-weight: 500;
+	opacity: 0.9;
+}
+
+.cards-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 380px));
+	gap: 30px;
+	max-width: 1200px;
+	width: 100%;
+	justify-content: center;
+	margin-bottom: 50px;
+}
+
+.film-card {
+	position: relative;
+	border-radius: 22px;
+	overflow: hidden;
+	cursor: pointer;
+	transition: transform 0.22s ease, box-shadow 0.22s ease;
+	box-shadow: 0 8px 24px rgba(18, 22, 30, 0.2);
+	text-decoration: none;
+	display: block;
+}
+
+.film-card:hover {
+	transform: translateY(-8px) scale(1.02);
+	box-shadow: 0 12px 36px rgba(18, 22, 30, 0.3);
+}
+
+.film-card.botan {
+	background: linear-gradient(135deg, var(--botan-bg-start) 0%, var(--botan-bg-end) 100%);
+}
+
+.film-card.chi {
+	background: linear-gradient(135deg, var(--chi-bg-start) 0%, var(--chi-bg-end) 100%);
+}
+
+.film-card.hoho {
+	background: linear-gradient(135deg, var(--hoho-bg-start) 0%, var(--hoho-bg-end) 100%);
+}
+
+.film-card-inner {
+	padding: 40px 30px;
+	text-align: center;
+	position: relative;
+	border-radius: 18px;
+	margin: 20px;
+	background: rgba(255, 255, 255, 0.12);
+	backdrop-filter: blur(6px) saturate(120%);
+	-webkit-backdrop-filter: blur(6px) saturate(120%);
+	border: 0.0625rem solid rgba(255, 255, 255, 0.22);
+}
+
+.film-card.hoho .film-card-inner {
+	color: rgba(22, 24, 30, 0.95);
+}
+
+.film-card.botan .film-card-inner,
+.film-card.chi .film-card-inner {
+	color: white;
+}
+
+.film-card-title {
+	font-size: 28px;
+	font-weight: 800;
+	margin-bottom: 20px;
+	letter-spacing: 2px;
+}
+
+.film-card .film-cylinder {
+	position: relative;
+	width: 100px;
+	height: 150px;
+	margin: 0 auto 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.film-card .roll-svg {
+	width: 100%;
+	height: 100%;
+	filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.film-card .film-text {
+	position: absolute;
+	font-size: 16px;
+	font-weight: 900;
+	letter-spacing: 3px;
+	transform: rotate(90deg);
+	text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+	z-index: 10;
+}
+
+.film-card.hoho .film-text {
+	color: rgba(22, 24, 30, 0.95);
+}
+
+.film-card.botan .film-text,
+.film-card.chi .film-text {
+	color: white;
+}
+
+.film-card-subtitle {
+	font-size: 18px;
+	font-weight: 600;
+	margin-top: 10px;
+	opacity: 0.8;
+}
+
+.app-store-section {
+	text-align: center;
+	margin-top: 30px;
+	color: white;
+}
+
+.app-store-section a {
+	display: inline-block;
+	transition: transform 0.3s ease;
+}
+
+.app-store-section a:hover {
+	transform: translateY(-2px);
+}
+
+.app-store-section .app-info {
+	margin-top: 15px;
+	font-size: 16px;
+	opacity: 0.9;
+}
+
+/* Index Page Responsive Styles */
+@media (max-width: 768px) {
+	.page-title {
+		font-size: 36px;
+	}
+
+	.page-subtitle {
+		font-size: 18px;
+	}
+
+	.cards-grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	body.index {
+		padding: 60px 20px 40px;
+	}
+
+	body.index .page-header {
+		margin-top: 20px;
+	}
+}
+
+/* Index Page Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+	.film-card,
+	.film-card:hover,
+	.app-store-section a {
+		transition: none !important;
+		transform: none !important;
+	}
 }
